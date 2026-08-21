@@ -1,0 +1,12 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="topLeft" x1="94" y1="94" x2="492" y2="492" gradientUnits="userSpaceOnUse"><stop stop-color="#60D6FF"/><stop offset="1" stop-color="#476BFF"/></linearGradient>
+    <linearGradient id="topRight" x1="930" y1="94" x2="532" y2="492" gradientUnits="userSpaceOnUse"><stop stop-color="#A584FF"/><stop offset="1" stop-color="#6844D9"/></linearGradient>
+    <linearGradient id="bottomLeft" x1="94" y1="930" x2="492" y2="532" gradientUnits="userSpaceOnUse"><stop stop-color="#2770D9"/><stop offset="1" stop-color="#4DBBFF"/></linearGradient>
+    <linearGradient id="bottomRight" x1="930" y1="930" x2="532" y2="532" gradientUnits="userSpaceOnUse"><stop stop-color="#B48CFF"/><stop offset="1" stop-color="#7544DB"/></linearGradient>
+  </defs>
+  <path d="M250 94H492V492H94V250C94 164 164 94 250 94Z" fill="url(#topLeft)"/>
+  <path d="M532 94H774C860 94 930 164 930 250V492H532V94Z" fill="url(#topRight)"/>
+  <path d="M94 532H492V930H250C164 930 94 860 94 774V532Z" fill="url(#bottomLeft)"/>
+  <path d="M532 532H930V774C930 860 860 930 774 930H532V532Z" fill="url(#bottomRight)"/>
+</svg>

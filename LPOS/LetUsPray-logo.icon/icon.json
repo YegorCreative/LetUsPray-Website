@@ -1,0 +1,224 @@
+{
+  "color-space-for-untagged-svg-colors" : "display-p3",
+  "fill" : {
+    "linear-gradient" : [
+      "srgb:0.01680,0.19835,1.00000,1.00000",
+      "srgb:1.00000,1.00000,1.00000,1.00000"
+    ]
+  },
+  "groups" : [
+    {
+      "layers" : [
+        {
+          "fill" : {
+            "linear-gradient" : [
+              "srgb:0.55634,0.97935,0.00000,1.00000",
+              "srgb:0.83217,0.98548,0.47333,1.00000"
+            ]
+          },
+          "image-name" : "top-right-accent-circle.svg",
+          "name" : "top-right-accent-circle",
+          "position" : {
+            "scale" : 0.9,
+            "translation-in-points" : [
+              49.89999999999998,
+              -26.09457605005241
+            ]
+          }
+        },
+        {
+          "hidden" : true,
+          "image-name" : "book-front.svg",
+          "name" : "book-front"
+        },
+        {
+          "hidden" : true,
+          "image-name" : "book-back.svg",
+          "name" : "book-back"
+        },
+        {
+          "blend-mode" : "normal",
+          "fill" : {
+            "linear-gradient" : [
+              "srgb:0.55634,0.97935,0.00000,1.00000",
+              "srgb:0.99942,0.98555,0.00000,1.00000"
+            ],
+            "orientation" : {
+              "start" : {
+                "x" : 0.5,
+                "y" : 1
+              },
+              "stop" : {
+                "x" : 0.5,
+                "y" : 0
+              }
+            }
+          },
+          "image-name" : "book-back-clean.svg",
+          "name" : "book-back-clean",
+          "position" : {
+            "scale" : 0.6,
+            "translation-in-points" : [
+              1.9999999999999432,
+              -4.659351853742237
+            ]
+          }
+        },
+        {
+          "blend-mode" : "normal",
+          "fill" : {
+            "solid" : "srgb:0.01680,0.19835,1.00000,1.00000"
+          },
+          "image-name" : "book-front-clean.svg",
+          "name" : "book-front-clean",
+          "position" : {
+            "scale" : 0.65,
+            "translation-in-points" : [
+              0.5,
+              -23.612335428784263
+            ]
+          }
+        },
+        {
+          "hidden" : true,
+          "image-name" : "open-book-foreground.png",
+          "name" : "open-book-foreground",
+          "position" : {
+            "scale" : 1,
+            "translation-in-points" : [
+              -2,
+              -0.5
+            ]
+          }
+        },
+        {
+          "blend-mode" : "normal",
+          "fill" : {
+            "linear-gradient" : [
+              "srgb:0.00000,0.99144,1.00000,1.00000",
+              "srgb:0.00486,0.09609,0.57499,1.00000"
+            ]
+          },
+          "hidden" : false,
+          "image-name" : "tile-top-left.svg",
+          "name" : "tile-top-left",
+          "position" : {
+            "scale" : 0.95,
+            "translation-in-points" : [
+              -33.776505736758,
+              -33
+            ]
+          }
+        },
+        {
+          "fill" : {
+            "linear-gradient" : [
+              "srgb:0.58188,0.21569,1.00000,1.00000",
+              "srgb:0.00486,0.09609,0.57499,1.00000"
+            ]
+          },
+          "hidden" : false,
+          "image-name" : "tile-top-right.svg",
+          "name" : "tile-top-right",
+          "position" : {
+            "scale" : 0.95,
+            "translation-in-points" : [
+              32.646253863542825,
+              -33
+            ]
+          }
+        },
+        {
+          "hidden" : true,
+          "image-name" : "book-front-exact.png",
+          "name" : "book-front-exact"
+        },
+        {
+          "hidden" : true,
+          "image-name" : "book-back-exact.png",
+          "name" : "book-back-exact"
+        },
+        {
+          "fill" : {
+            "linear-gradient" : [
+              "srgb:0.00486,0.09609,0.57499,1.00000",
+              "srgb:0.32370,0.10636,0.57486,1.00000"
+            ]
+          },
+          "hidden" : false,
+          "image-name" : "tile-bottom-left.svg",
+          "name" : "tile-bottom-left",
+          "position" : {
+            "scale" : 0.95,
+            "translation-in-points" : [
+              -40.26999999999998,
+              38.25542394994761
+            ]
+          }
+        },
+        {
+          "fill" : {
+            "linear-gradient" : [
+              "srgb:0.00000,0.99144,1.00000,1.00000",
+              "srgb:0.01680,0.19835,1.00000,1.00000"
+            ]
+          },
+          "hidden" : false,
+          "image-name" : "tile-bottom-right.svg",
+          "name" : "tile-bottom-right",
+          "position" : {
+            "scale" : 0.95,
+            "translation-in-points" : [
+              32.646253863542825,
+              36.99081551935376
+            ]
+          }
+        },
+        {
+          "fill" : {
+            "linear-gradient" : [
+              "srgb:0.32370,0.10636,0.57486,1.00000",
+              "srgb:1.00000,1.00000,1.00000,1.00000"
+            ]
+          },
+          "hidden" : false,
+          "image-name" : "four-tile-base.svg",
+          "name" : "four-tile-base",
+          "position" : {
+            "scale" : 1.1,
+            "translation-in-points" : [
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "hidden" : true,
+          "image-name" : "4cbe1cae0b9c1632f9b5674b7fd7a3e8f19d4acb46bc95207f8fe9626ab890ea 2.png",
+          "name" : "4cbe1cae0b9c1632f9b5674b7fd7a3e8f19d4acb46bc95207f8fe9626ab890ea 2",
+          "position" : {
+            "scale" : 1,
+            "translation-in-points" : [
+              0,
+              -35.69457605005243
+            ]
+          }
+        }
+      ],
+      "shadow" : {
+        "kind" : "neutral",
+        "opacity" : 0.6
+      },
+      "translucency" : {
+        "enabled" : true,
+        "value" : 0.2
+      }
+    }
+  ],
+  "supported-platforms" : {
+    "circles" : [
+      "watchOS"
+    ],
+    "squares" : "shared"
+  }
+}

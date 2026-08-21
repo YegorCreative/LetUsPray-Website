@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1536 1024">
+  <defs>
+    <linearGradient id="rear" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#3FD8FF"/><stop offset=".55" stop-color="#4E8CFF"/><stop offset="1" stop-color="#6A51FF"/>
+    </linearGradient>
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="18"/></filter>
+  </defs>
+  <g fill="#2BCBFF" opacity=".28" filter="url(#softGlow)">
+    <path d="M424 190C563 204 678 256 739 330V695C657 622 554 584 424 574Z"/>
+    <path d="M1112 190C973 204 858 256 797 330V695C879 622 982 584 1112 574Z"/>
+  </g>
+  <g fill="url(#rear)">
+    <path d="M420 190C560 204 677 255 738 330V700C657 624 552 585 420 575C398 573 380 555 380 533V237C380 207 396 187 420 190Z"/>
+    <path d="M1116 190C976 204 859 255 798 330V700C879 624 984 585 1116 575C1138 573 1156 555 1156 533V237C1156 207 1140 187 1116 190Z"/>
+  </g>
+</svg>
