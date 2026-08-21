@@ -39,6 +39,7 @@ import '../styles/home.css';
         <AppStoreCta />
       </div>
       <div class="hero-media">
+        <div class="hero-glow" aria-hidden="true"></div>
         <DeviceShot
           src={iphoneScreenshots[0].src}
           alt={iphoneScreenshots[0].alt}
@@ -51,7 +52,7 @@ import '../styles/home.css';
   </section>
 
   <section class="band band-light" aria-labelledby="what-heading">
-    <div class="wrap home-section editorial">
+    <div class="wrap home-section editorial" data-reveal>
       <h2 id="what-heading">What LetUsPray is</h2>
       <div class="prose">
         <p>LetUsPray helps people pray through Scripture.</p>
@@ -67,12 +68,14 @@ import '../styles/home.css';
 
   <section class="band band-secondary" aria-labelledby="how-heading">
     <div class="wrap home-section">
-      <h2 id="how-heading">How it works</h2>
-      <p class="lede">Every prayer follows the same rhythm.</p>
+      <div class="section-lead" data-reveal>
+        <h2 id="how-heading">How it works</h2>
+        <p class="lede">Every prayer follows the same rhythm.</p>
+      </div>
       <ol class="rhythm">
         {
           rhythm.map((step, index) => (
-            <li class="rhythm-item">
+            <li class="rhythm-item" data-reveal>
               <h3>
                 <span class="step-index" aria-hidden="true">{index + 1}.</span>
                 {' '}
@@ -88,12 +91,14 @@ import '../styles/home.css';
 
   <section class="band band-light" aria-labelledby="features-heading">
     <div class="wrap home-section">
-      <h2 id="features-heading">Features</h2>
-      <p class="lede">Available now on iPhone and iPad.</p>
+      <div class="section-lead" data-reveal>
+        <h2 id="features-heading">Features</h2>
+        <p class="lede">Available now on iPhone and iPad.</p>
+      </div>
       <ul class="feature-grid">
         {
           features.map((feature) => (
-            <li class="feature-card">
+            <li class="feature-card" data-reveal>
               <h3>{feature.title}</h3>
               <p>{feature.body}</p>
             </li>
@@ -103,14 +108,14 @@ import '../styles/home.css';
     </div>
   </section>
 
-  <section class="band band-dark" aria-labelledby="screenshots-heading">
+  <section class="band band-dark showcase" aria-labelledby="screenshots-heading">
     <div class="wrap home-section">
-      <h2 id="screenshots-heading">Inside the app</h2>
+      <h2 id="screenshots-heading" data-reveal>Inside the app</h2>
       <div class="shot-panel">
         <ul class="shot-rail" aria-label="iPhone screenshots">
           {
             iphoneScreenshots.map((shot) => (
-              <li>
+              <li data-reveal>
                 <DeviceShot
                   src={shot.src}
                   alt={shot.alt}
@@ -144,7 +149,7 @@ import '../styles/home.css';
   </section>
 
   <section class="band band-light" aria-labelledby="who-heading">
-    <div class="wrap home-section editorial">
+    <div class="wrap home-section editorial" data-reveal>
       <h2 id="who-heading">Who it is for</h2>
       <div class="prose">
         <p>LetUsPray is for anyone who wants to pray through Scripture.</p>
@@ -158,8 +163,8 @@ import '../styles/home.css';
     </div>
   </section>
 
-  <section class="band band-dark band-compact" aria-labelledby="cta-heading">
-    <div class="wrap close-cta">
+  <section class="band band-dark band-compact cta-close" aria-labelledby="cta-heading">
+    <div class="wrap close-cta" data-reveal>
       <div class="close-cta-copy">
         <h2 id="cta-heading">Get the app</h2>
         <p class="lede">LetUsPray is for iPhone and iPad.</p>
@@ -169,7 +174,7 @@ import '../styles/home.css';
   </section>
 
   <section class="band band-dark band-compact help-band" aria-labelledby="help-heading">
-    <div class="wrap close-help">
+    <div class="wrap close-help" data-reveal>
       <div class="close-help-copy">
         <h2 id="help-heading">Help</h2>
         <p class="lede">
@@ -185,3 +190,5 @@ import '../styles/home.css';
     </div>
   </section>
 </BaseLayout>
+
+<script src="../scripts/home-experience.js"></script>

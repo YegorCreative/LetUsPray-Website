@@ -1,4 +1,5 @@
 ---
+import BackToTop from '../components/BackToTop.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { canonicalUrl, defaultDescription, pageTitle, site } from '../site';
@@ -24,13 +25,13 @@ const fullTitle = pageTitle(title, isHome);
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" id="top" tabindex="-1">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#050505" />
+    <meta name="theme-color" content="#161b04" />
     <link rel="icon" type="image/svg+xml" href="/brand/letuspray-logo.svg" />
     <link rel="icon" type="image/png" href="/brand/letuspray-logo-180.png" />
     <link rel="apple-touch-icon" href="/brand/letuspray-logo-180.png" />
@@ -58,5 +59,6 @@ const fullTitle = pageTitle(title, isHome);
       )}
     </main>
     <Footer />
+    {isHome ? <BackToTop /> : null}
   </body>
 </html>
