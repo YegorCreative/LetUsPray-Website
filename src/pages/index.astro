@@ -1,5 +1,6 @@
 ---
 import AppStoreCta from '../components/AppStoreCta.astro';
+import BrandMark from '../components/BrandMark.astro';
 import DeviceShot from '../components/DeviceShot.astro';
 import ScriptureMoment from '../components/ScriptureMoment.astro';
 import {
@@ -193,7 +194,7 @@ const [primaryShot, ...otherShots] = iphoneScreenshots;
   </section>
 
   <section class="who" aria-labelledby="who-heading">
-    <div class="wrap who-panel" data-reveal>
+    <div class="wrap who-stage" data-reveal>
       <h2 id="who-heading">Who it is for</h2>
       <div class="prose">
         <p>LetUsPray is for anyone who wants to pray through Scripture.</p>
@@ -211,6 +212,7 @@ const [primaryShot, ...otherShots] = iphoneScreenshots;
     <section class="scripture-close" aria-label={scriptures.close.reference}>
       <div class="wrap" data-reveal>
         <ScriptureMoment
+          variant="close"
           reference={scriptures.close.reference}
           text={scriptures.close.text}
         />
@@ -218,7 +220,8 @@ const [primaryShot, ...otherShots] = iphoneScreenshots;
     </section>
 
     <section class="get-app" aria-labelledby="cta-heading">
-      <div class="wrap close-cta" data-reveal>
+      <div class="wrap get-app-panel" data-reveal>
+        <BrandMark class="get-app-mark" size={56} />
         <div class="close-cta-copy">
           <h2 id="cta-heading">Get the app</h2>
           <p class="lede">LetUsPray is for iPhone and iPad.</p>

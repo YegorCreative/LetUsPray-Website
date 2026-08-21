@@ -2,12 +2,13 @@
 interface Props {
   reference: string;
   text?: string | null;
+  variant?: 'inline' | 'close';
 }
 
-const { reference, text = null } = Astro.props;
+const { reference, text = null, variant = 'inline' } = Astro.props;
 ---
 
-<figure class="scripture">
+<figure class:list={['scripture', variant === 'close' && 'scripture--close']}>
   {
     text ? (
       <blockquote class="scripture-text">
