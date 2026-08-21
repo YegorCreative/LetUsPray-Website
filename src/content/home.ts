@@ -1,7 +1,18 @@
 export const homeMeta = {
   title: 'LetUsPray',
   description:
-    'LetUsPray is a Scripture-centered prayer app for iPhone and iPad. It helps you pray through Scripture, one verse at a time.',
+    'LetUsPray is a Scripture-centered prayer app designed to help you slow down, open God’s Word, and respond in prayer—one verse at a time.',
+};
+
+export const scriptures = {
+  hero: {
+    reference: 'James 4:8',
+    text: null as string | null,
+  },
+  close: {
+    reference: '1 Thessalonians 5:17',
+    text: null as string | null,
+  },
 };
 
 export const rhythm = [

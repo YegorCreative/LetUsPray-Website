@@ -12,9 +12,7 @@ html {
 
 body {
   margin: 0;
-  font-family:
-    -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display',
-    system-ui, sans-serif;
+  font-family: var(--font-sans);
   font-size: 1.0625rem;
   line-height: 1.55;
   color: var(--lup-text-on-light);

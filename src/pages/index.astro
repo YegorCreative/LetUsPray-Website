@@ -1,13 +1,14 @@
 ---
 import AppStoreCta from '../components/AppStoreCta.astro';
-import BrandMark from '../components/BrandMark.astro';
 import DeviceShot from '../components/DeviceShot.astro';
+import ScriptureMoment from '../components/ScriptureMoment.astro';
 import {
   features,
   homeMeta,
   ipadScreenshots,
   iphoneScreenshots,
   rhythm,
+  scriptures,
   screenshotIntrinsic,
 } from '../content/home';
 import BaseLayout from '../layouts/BaseLayout.astro';
@@ -28,19 +29,24 @@ const [primaryShot, ...otherShots] = iphoneScreenshots;
     <div class="hero-atmosphere" aria-hidden="true"></div>
     <div class="wrap hero-inner">
       <div class="hero-copy">
-        <p class="hero-brand">
-          <BrandMark class="hero-logo" size={96} />
-          <span class="hero-wordmark">LetUsPray</span>
-        </p>
-        <h1 id="hero-heading">Pray through Scripture</h1>
+        <p class="hero-eyebrow">LETUSPRAY</p>
+        <h1 id="hero-heading">
+          <span class="hero-line">Pray through Scripture.</span>
+          <span class="hero-line">Grow closer to Jesus.</span>
+        </h1>
         <p class="hero-lead">
-          LetUsPray is a Scripture-centered prayer app. It helps you read God’s
-          Word and respond in prayer, one verse at a time.
+          LetUsPray is a Scripture-centered prayer app designed to help you
+          slow down, open God’s Word, and respond in prayer—one verse at a
+          time.
         </p>
-        <p class="hero-support">
-          The experience is designed to stay quiet and unhurried, so attention
-          can remain on prayer rather than on the app.
+        <p class="hero-welcome">
+          Whether you have followed Jesus for years or are just beginning to
+          pray, you are welcome here.
         </p>
+        <ScriptureMoment
+          reference={scriptures.hero.reference}
+          text={scriptures.hero.text}
+        />
         <AppStoreCta />
       </div>
       <div class="hero-media">
@@ -202,6 +208,15 @@ const [primaryShot, ...otherShots] = iphoneScreenshots;
   </section>
 
   <div class="close-flow">
+    <section class="scripture-close" aria-label={scriptures.close.reference}>
+      <div class="wrap" data-reveal>
+        <ScriptureMoment
+          reference={scriptures.close.reference}
+          text={scriptures.close.text}
+        />
+      </div>
+    </section>
+
     <section class="get-app" aria-labelledby="cta-heading">
       <div class="wrap close-cta" data-reveal>
         <div class="close-cta-copy">

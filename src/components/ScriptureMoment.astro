@@ -1,0 +1,19 @@
+---
+interface Props {
+  reference: string;
+  text?: string | null;
+}
+
+const { reference, text = null } = Astro.props;
+---
+
+<figure class="scripture">
+  {
+    text ? (
+      <blockquote class="scripture-text">
+        <p>{text}</p>
+      </blockquote>
+    ) : null
+  }
+  <figcaption class="scripture-ref">{reference}</figcaption>
+</figure>

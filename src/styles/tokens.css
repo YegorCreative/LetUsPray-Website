@@ -40,4 +40,10 @@
   --radius-xl: 2rem;
   --focus: 0.15rem;
   --header-height: 4.25rem;
+  --font-sans:
+    -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display',
+    system-ui, sans-serif;
+  --font-serif:
+    'Iowan Old Style', 'Palatino Linotype', Palatino, 'Book Antiqua',
+    'Times New Roman', Times, serif;
 }
