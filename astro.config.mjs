@@ -1,8 +1,9 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 
-// Static output for Cloudflare Pages. DNS and production deploy
-// are intentionally not configured in this scaffold phase.
+// Static output for GitHub Pages at the custom apex domain.
+// Do not set `base` to the repository name; the public site is
+// https://letusprayapp.com, not a /LetUsPray-Website/ path.
 export default defineConfig({
   site: 'https://letusprayapp.com',
   output: 'static',
