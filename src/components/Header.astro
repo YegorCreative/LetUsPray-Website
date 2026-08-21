@@ -1,6 +1,6 @@
 ---
 import BrandMark from './BrandMark.astro';
-import { navItems, normalizePath, site } from '../site';
+import { menuItems, navItems, normalizePath, site } from '../site';
 
 const current = normalizePath(Astro.url.pathname);
 ---
@@ -8,7 +8,7 @@ const current = normalizePath(Astro.url.pathname);
 <header class="site-header">
   <div class="wrap header-inner">
     <a class="site-id" href="/" aria-current={current === '/' ? 'page' : undefined}>
-      <BrandMark class="site-logo" size={44} />
+      <BrandMark class="site-logo" size={40} />
       <span>{site.name}</span>
     </a>
     <nav class="primary-nav" aria-label="Primary">
@@ -27,5 +27,43 @@ const current = normalizePath(Astro.url.pathname);
         }
       </ul>
     </nav>
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-controls="site-menu"
+      aria-expanded="false"
+      aria-label="Open menu"
+    >
+      <span class="menu-toggle-icon" aria-hidden="true">
+        <span></span>
+        <span></span>
+      </span>
+    </button>
   </div>
 </header>
+
+<nav id="site-menu" class="site-menu" aria-label="Menu">
+  <div class="site-menu-inner">
+    <ul class="site-menu-list">
+      {
+        menuItems.map((item, index) => (
+          <li>
+            <a
+              href={item.href}
+              aria-current={current === item.href ? 'page' : undefined}
+            >
+              <span class="menu-label">{item.label}</span>
+              <span class="menu-index">{String(index + 1).padStart(2, '0')}</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    <p class="site-menu-creed">
+      <span>Pray through Scripture.</span>
+      <span>Grow closer to Jesus.</span>
+    </p>
+  </div>
+</nav>
+
+<script src="../scripts/site-nav.js"></script>

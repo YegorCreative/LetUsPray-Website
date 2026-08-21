@@ -6,12 +6,21 @@ interface Props {
   width: number;
   height: number;
   eager?: boolean;
+  class?: string;
 }
 
-const { src, alt, caption, width, height, eager = false } = Astro.props;
+const {
+  src,
+  alt,
+  caption,
+  width,
+  height,
+  eager = false,
+  class: className,
+} = Astro.props;
 ---
 
-<figure class="device-shot">
+<figure class:list={['device-shot', className]}>
   <div class="device-shot__frame">
     <img
       src={src}

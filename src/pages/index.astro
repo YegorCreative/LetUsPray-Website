@@ -2,11 +2,11 @@
 import AppStoreCta from '../components/AppStoreCta.astro';
 import BrandMark from '../components/BrandMark.astro';
 import DeviceShot from '../components/DeviceShot.astro';
+import JourneyRail from '../components/JourneyRail.astro';
 import ScriptureMoment from '../components/ScriptureMoment.astro';
 import {
   features,
   homeMeta,
-  ipadScreenshots,
   iphoneScreenshots,
   rhythm,
   scriptures,
@@ -15,9 +15,13 @@ import {
 import BaseLayout from '../layouts/BaseLayout.astro';
 import '../styles/home.css';
 
-const featureCore = features.slice(0, 4);
-const featureMore = features.slice(4);
-const [primaryShot, ...otherShots] = iphoneScreenshots;
+const today = iphoneScreenshots[0];
+const welcome = iphoneScreenshots[1];
+const journeys = iphoneScreenshots[2];
+const prayer = iphoneScreenshots[3];
+const [leadFeature, ...otherFeatures] = features;
+const primaryFeatures = otherFeatures.slice(0, 3);
+const rowFeatures = otherFeatures.slice(3);
 ---
 
 <BaseLayout
@@ -26,8 +30,16 @@ const [primaryShot, ...otherShots] = iphoneScreenshots;
   path="/"
   isHome
 >
-  <section class="hero" aria-labelledby="hero-heading">
-    <div class="hero-atmosphere" aria-hidden="true"></div>
+  <JourneyRail />
+
+  <section class="hero" id="come-in" aria-labelledby="hero-heading" data-journey="come-in">
+    <div class="hero-atmosphere" aria-hidden="true">
+      <span class="hero-light hero-light--a"></span>
+      <span class="hero-light hero-light--b"></span>
+      <span class="hero-light hero-light--c"></span>
+      <span class="hero-plane"></span>
+      <span class="hero-noise"></span>
+    </div>
     <div class="wrap hero-inner">
       <div class="hero-copy">
         <p class="hero-eyebrow">LETUSPRAY</p>
@@ -47,206 +59,283 @@ const [primaryShot, ...otherShots] = iphoneScreenshots;
         <ScriptureMoment
           reference={scriptures.hero.reference}
           text={scriptures.hero.text}
+          reveal={false}
         />
-        <AppStoreCta />
       </div>
       <div class="hero-media">
-        <div class="hero-glow" aria-hidden="true"></div>
+        <div class="hero-device-glow" aria-hidden="true"></div>
         <DeviceShot
-          src={primaryShot.src}
-          alt={primaryShot.alt}
+          class="hero-device"
+          src={today.src}
+          alt={today.alt}
           width={screenshotIntrinsic.width}
           height={screenshotIntrinsic.height}
           eager
         />
+        <span class="hero-reflection" aria-hidden="true"></span>
       </div>
     </div>
   </section>
 
-  <div class="light-flow">
-    <section class="what" aria-labelledby="what-heading">
-      <div class="wrap what-panel" data-reveal>
+  <section
+    class="word"
+    id="open-the-word"
+    aria-labelledby="what-heading"
+    data-journey="open-the-word"
+  >
+    <div class="wrap word-inner">
+      <div class="word-intro" data-reveal>
         <h2 id="what-heading">What LetUsPray is</h2>
-        <div class="prose">
-          <p>LetUsPray helps people pray through Scripture.</p>
-          <p class="anchor-line">Scripture comes first. Prayer is the response.</p>
-          <p>
-            The app gives you a peaceful place to open a verse, pray from it, and
-            continue a simple journey with God. You can begin without creating an
-            account.
-          </p>
-        </div>
+        <p>LetUsPray helps people pray through Scripture.</p>
       </div>
-    </section>
+      <p class="creed" data-reveal>
+        <span class="creed-block">
+          <span class="creed-kicker">Scripture</span>
+          <span class="creed-statement">comes first.</span>
+        </span>
+        <span class="creed-block">
+          <span class="creed-kicker">Prayer</span>
+          <span class="creed-statement">is the response.</span>
+        </span>
+      </p>
+      <p class="word-quiet" data-reveal>
+        The app gives you a peaceful place to open a verse, pray from it, and
+        continue a simple journey with God. You can begin without creating an
+        account.
+      </p>
+    </div>
+  </section>
 
-    <section class="how" aria-labelledby="how-heading">
-      <div class="wrap">
-        <div class="section-lead" data-reveal>
-          <h2 id="how-heading">How it works</h2>
-          <p class="lede">Every prayer follows the same rhythm.</p>
+  <section
+    class="path-section"
+    id="prayer-path"
+    aria-labelledby="how-heading"
+    data-journey="prayer-path"
+  >
+    <div class="wrap">
+      <div class="section-lead" data-reveal>
+        <h2 id="how-heading">How it works</h2>
+        <p class="lede">Every prayer follows the same rhythm.</p>
+      </div>
+      <div class="prayer-path-wrap">
+        <div class="path-spine" aria-hidden="true">
+          <span class="path-spine-track"></span>
+          <span class="path-spine-progress"></span>
         </div>
-        <ol class="rhythm">
+        <ol class="prayer-path">
           {
             rhythm.map((step, index) => (
-              <li class="rhythm-item" data-reveal>
-                <h3>
-                  <span class="step-index" aria-hidden="true">{index + 1}.</span>
-                  {' '}
-                  {step.title}
-                </h3>
+              <li class="path-step" data-path-step data-reveal>
+                <span class="path-marker">
+                  <span>{String(index + 1).padStart(2, '0')}</span>
+                </span>
+                <h3>{step.title}</h3>
                 <p>{step.body}</p>
               </li>
             ))
           }
         </ol>
       </div>
-    </section>
-
-    <section class="features" aria-labelledby="features-heading">
-      <div class="wrap">
-        <div class="section-lead" data-reveal>
-          <h2 id="features-heading">Features</h2>
-          <p class="lede">Available now on iPhone and iPad.</p>
-        </div>
-        <ul class="feature-core">
-          {
-            featureCore.map((feature) => (
-              <li class="feature-item feature-item--core" data-reveal>
-                <h3>{feature.title}</h3>
-                <p>{feature.body}</p>
-              </li>
-            ))
-          }
-        </ul>
-        <ul class="feature-more">
-          {
-            featureMore.map((feature) => (
-              <li class="feature-item" data-reveal>
-                <h3>{feature.title}</h3>
-                <p>{feature.body}</p>
-              </li>
-            ))
-          }
-        </ul>
-      </div>
-    </section>
-  </div>
-
-  <section class="showcase" aria-labelledby="screenshots-heading">
-    <div class="wrap">
-      <h2 id="screenshots-heading" data-reveal>Inside the app</h2>
-      <div class="showcase-stage" aria-label="iPhone screenshots">
-        <div class="phone phone-side phone-left" data-reveal>
-          <DeviceShot
-            src={otherShots[0].src}
-            alt={otherShots[0].alt}
-            caption={otherShots[0].caption}
-            width={screenshotIntrinsic.width}
-            height={screenshotIntrinsic.height}
-          />
-        </div>
-        <div class="phone phone-primary" data-reveal>
-          <DeviceShot
-            src={primaryShot.src}
-            alt={primaryShot.alt}
-            caption={primaryShot.caption}
-            width={screenshotIntrinsic.width}
-            height={screenshotIntrinsic.height}
-          />
-        </div>
-        <div class="phone phone-side phone-right" data-reveal>
-          <DeviceShot
-            src={otherShots[1].src}
-            alt={otherShots[1].alt}
-            caption={otherShots[1].caption}
-            width={screenshotIntrinsic.width}
-            height={screenshotIntrinsic.height}
-          />
-        </div>
-        <div class="phone phone-rear" data-reveal>
-          <DeviceShot
-            src={otherShots[2].src}
-            alt={otherShots[2].alt}
-            caption={otherShots[2].caption}
-            width={screenshotIntrinsic.width}
-            height={screenshotIntrinsic.height}
-          />
-        </div>
-      </div>
-      {
-        ipadScreenshots.length > 0 ? (
-          <ul class="shot-rail" aria-label="iPad screenshots">
-            {ipadScreenshots.map((shot) => (
-              <li>
-                <DeviceShot
-                  src={shot.src}
-                  alt={shot.alt}
-                  caption={shot.caption}
-                  width={screenshotIntrinsic.width}
-                  height={screenshotIntrinsic.height}
-                />
-              </li>
-            ))}
-          </ul>
-        ) : null
-      }
     </div>
   </section>
 
-  <section class="who" aria-labelledby="who-heading">
-    <div class="wrap who-stage" data-reveal>
-      <h2 id="who-heading">Who it is for</h2>
-      <div class="prose">
+  <section
+    class="discover-section"
+    id="features"
+    aria-labelledby="features-heading"
+    data-journey="features"
+  >
+    <div class="wrap">
+      <div class="section-lead" data-reveal>
+        <h2 id="features-heading">Features</h2>
+        <p class="lede">Available now on iPhone and iPad.</p>
+      </div>
+      <ul class="discover">
+        <li class="discover-item discover-item--lead" data-reveal>
+          <span class="discover-index">01</span>
+          <div class="discover-copy">
+            <h3>{leadFeature.title}</h3>
+            <p>{leadFeature.body}</p>
+          </div>
+        </li>
+        {
+          primaryFeatures.map((feature, index) => (
+            <li class="discover-item discover-item--primary" data-reveal>
+              <span class="discover-index">{String(index + 2).padStart(2, '0')}</span>
+              <div class="discover-copy">
+                <h3>{feature.title}</h3>
+                <p>{feature.body}</p>
+              </div>
+            </li>
+          ))
+        }
+        {
+          rowFeatures.map((feature, index) => (
+            <li class="discover-item discover-item--row" data-reveal>
+              <span class="discover-index">{String(index + 5).padStart(2, '0')}</span>
+              <div class="discover-copy">
+                <h3>{feature.title}</h3>
+                <p>{feature.body}</p>
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section
+    class="showcase"
+    id="inside-the-app"
+    aria-labelledby="screenshots-heading"
+    data-journey="inside-the-app"
+  >
+    <div class="showcase-glow" aria-hidden="true"></div>
+    <div class="wrap showcase-head" data-reveal>
+      <h2 id="screenshots-heading">Inside the app</h2>
+    </div>
+    <div class="showcase-viewport">
+      <ul class="showcase-track" aria-label="iPhone screenshots" data-reveal>
+        <li class="phone phone-today">
+          <DeviceShot
+            src={today.src}
+            alt={today.alt}
+            caption={today.caption}
+            width={screenshotIntrinsic.width}
+            height={screenshotIntrinsic.height}
+            eager
+          />
+        </li>
+        <li class="phone phone-welcome">
+          <DeviceShot
+            src={welcome.src}
+            alt={welcome.alt}
+            caption={welcome.caption}
+            width={screenshotIntrinsic.width}
+            height={screenshotIntrinsic.height}
+            eager
+          />
+        </li>
+        <li class="phone phone-journeys">
+          <DeviceShot
+            src={journeys.src}
+            alt={journeys.alt}
+            caption={journeys.caption}
+            width={screenshotIntrinsic.width}
+            height={screenshotIntrinsic.height}
+            eager
+          />
+        </li>
+        <li class="phone phone-prayer">
+          <DeviceShot
+            src={prayer.src}
+            alt={prayer.alt}
+            caption={prayer.caption}
+            width={screenshotIntrinsic.width}
+            height={screenshotIntrinsic.height}
+            eager
+          />
+        </li>
+      </ul>
+    </div>
+    <div class="wrap">
+      <div class="showcase-dots">
+        {
+          [today, welcome, journeys, prayer].map((shot, index) => (
+            <button
+              class="showcase-dot"
+              type="button"
+              data-showcase-dot
+              aria-label={shot.caption}
+              aria-current={index === 0 ? 'true' : undefined}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section
+    class="welcome"
+    id="welcome"
+    aria-labelledby="who-heading"
+    data-journey="welcome"
+  >
+    <div class="wrap welcome-inner">
+      <div class="welcome-copy" data-reveal>
+        <h2 id="who-heading">Who it is for</h2>
         <p>LetUsPray is for anyone who wants to pray through Scripture.</p>
         <p>
           It is for lifelong believers and for people opening a Bible for the
           first time. It is for families, pastors, students, and anyone who is
           searching, grieving, hoping, or simply ready to begin.
         </p>
-        <p class="welcome-line">You are welcome here.</p>
+      </div>
+      <p class="welcome-statement" data-reveal>
+        <span>You are</span>
+        <span>welcome here.</span>
+      </p>
+    </div>
+  </section>
+
+  <section
+    class="pause"
+    id="scripture-pause"
+    aria-label={scriptures.close.reference}
+  >
+    <div class="pause-glow" aria-hidden="true"></div>
+    <div class="wrap pause-inner">
+      <ScriptureMoment
+        variant="pause"
+        reference={scriptures.close.reference}
+        text={scriptures.close.text}
+      />
+    </div>
+  </section>
+
+  <section
+    class="finale"
+    id="begin"
+    aria-labelledby="cta-heading"
+    data-journey="begin"
+  >
+    <div class="wrap finale-inner">
+      <div class="finale-copy" data-reveal>
+        <p class="finale-kicker">Begin</p>
+        <h2 id="cta-heading">Get the app</h2>
+        <p class="lede">LetUsPray is for iPhone and iPad.</p>
+        <div class="store-slot"><AppStoreCta /></div>
+      </div>
+      <div class="finale-visual" data-reveal>
+        <div class="finale-glow" aria-hidden="true"></div>
+        <BrandMark class="finale-mark" size={96} />
+        <DeviceShot
+          class="finale-device"
+          src={today.src}
+          alt={today.alt}
+          width={screenshotIntrinsic.width}
+          height={screenshotIntrinsic.height}
+        />
       </div>
     </div>
   </section>
 
-  <div class="close-flow">
-    <section class="scripture-close" aria-label={scriptures.close.reference}>
-      <div class="wrap" data-reveal>
-        <ScriptureMoment
-          variant="close"
-          reference={scriptures.close.reference}
-          text={scriptures.close.text}
-        />
+  <section class="help-band" aria-labelledby="help-heading">
+    <div class="wrap close-help" data-reveal>
+      <div class="close-help-copy">
+        <h2 id="help-heading">Help</h2>
+        <p class="lede">
+          Questions, feedback, and privacy information are here when you need them.
+        </p>
       </div>
-    </section>
-
-    <section class="get-app" aria-labelledby="cta-heading">
-      <div class="wrap get-app-panel" data-reveal>
-        <BrandMark class="get-app-mark" size={56} />
-        <div class="close-cta-copy">
-          <h2 id="cta-heading">Get the app</h2>
-          <p class="lede">LetUsPray is for iPhone and iPad.</p>
-        </div>
-        <div class="store-slot"><AppStoreCta /></div>
-      </div>
-    </section>
-
-    <section class="help-band" aria-labelledby="help-heading">
-      <div class="wrap close-help" data-reveal>
-        <div class="close-help-copy">
-          <h2 id="help-heading">Help</h2>
-          <p class="lede">
-            Questions, feedback, and privacy information are here when you need them.
-          </p>
-        </div>
-        <ul class="help-links">
-          <li><a href="/support">Support and FAQ</a></li>
-          <li><a href="/contact">Contact</a></li>
-          <li><a href="/feedback">Feedback</a></li>
-          <li><a href="/privacy">Privacy Policy</a></li>
-        </ul>
-      </div>
-    </section>
-  </div>
+      <ul class="help-links">
+        <li><a href="/support">Support and FAQ</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/feedback">Feedback</a></li>
+        <li><a href="/privacy">Privacy Policy</a></li>
+      </ul>
+    </div>
+  </section>
 </BaseLayout>
 
 <script src="../scripts/home-experience.js"></script>

@@ -2,19 +2,40 @@
 interface Props {
   reference: string;
   text?: string | null;
-  variant?: 'inline' | 'close';
+  variant?: 'spotlight' | 'pause';
+  reveal?: boolean;
 }
 
-const { reference, text = null, variant = 'inline' } = Astro.props;
+const { reference, text = null, variant = 'spotlight', reveal = true } = Astro.props;
+const parts = reference.trim().match(/^(.*)\s+(\d+:\d+[a-zA-Z]?)$/);
+const book = parts?.[1] ?? reference;
+const verse = parts?.[2] ?? '';
+const isPause = variant === 'pause';
 ---
 
-<figure class:list={['scripture', variant === 'close' && 'scripture--close']}>
+<figure
+  class:list={['scripture-spotlight', isPause && 'scripture-spotlight--pause']}
+  data-scripture
+  data-reveal={reveal ? true : undefined}
+>
+  <span class="scripture-rule" aria-hidden="true"></span>
+  {
+    isPause ? (
+      <figcaption class="scripture-ref scripture-ref--split">
+        <span class="scripture-book">{book}</span>
+        {verse ? <span class="scripture-chapter">{verse}</span> : null}
+      </figcaption>
+    ) : (
+      <figcaption class="scripture-ref">{reference}</figcaption>
+    )
+  }
   {
     text ? (
       <blockquote class="scripture-text">
         <p>{text}</p>
       </blockquote>
-    ) : null
+    ) : (
+      <div class="scripture-ready" aria-hidden="true"></div>
+    )
   }
-  <figcaption class="scripture-ref">{reference}</figcaption>
 </figure>

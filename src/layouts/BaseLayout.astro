@@ -28,12 +28,16 @@ const fullTitle = pageTitle(title, isHome);
 <html lang="en" id="top" tabindex="-1">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <script is:inline>
+      document.documentElement.classList.add('js-nav');
+    </script>
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <meta name="theme-color" content="#050505" />
-    <link rel="icon" type="image/svg+xml" href="/brand/letuspray-logo.svg" />
-    <link rel="icon" type="image/png" href="/brand/letuspray-logo-180.png" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/brand/letuspray-icon-32.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/brand/letuspray-icon-512.png" />
     <link rel="apple-touch-icon" href="/brand/letuspray-logo-180.png" />
     <link rel="canonical" href={canonical} />
     <meta name="robots" content={robots} />
@@ -43,9 +47,11 @@ const fullTitle = pageTitle(title, isHome);
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={`${site.canonicalOrigin}/brand/letuspray-icon-512.png`} />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`${site.canonicalOrigin}/brand/letuspray-icon-512.png`} />
     <meta name="generator" content={Astro.generator} />
   </head>
   <body class:list={[isHome && 'is-home']}>

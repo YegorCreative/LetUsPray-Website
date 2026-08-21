@@ -1,0 +1,28 @@
+---
+const stages = [
+  { href: '#come-in', label: 'Come in' },
+  { href: '#open-the-word', label: 'Word' },
+  { href: '#prayer-path', label: 'Pray' },
+  { href: '#features', label: 'Rhythm' },
+  { href: '#inside-the-app', label: 'Experience' },
+  { href: '#welcome', label: 'Welcome' },
+  { href: '#begin', label: 'Begin' },
+] as const;
+---
+
+<nav class="journey-rail" aria-label="Page journey">
+  <ol>
+    {
+      stages.map((stage, index) => (
+        <li>
+          <a href={stage.href} data-journey-link title={stage.label}>
+            <span class="journey-index" aria-hidden="true">
+              {String(index + 1).padStart(2, '0')}
+            </span>
+            <span class="journey-label">{stage.label}</span>
+          </a>
+        </li>
+      ))
+    }
+  </ol>
+</nav>

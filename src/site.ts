@@ -43,6 +43,15 @@ export const navItems = [
   { href: '/feedback', label: 'Feedback' },
 ] as const;
 
+/** Full overlay menu, including Privacy. */
+export const menuItems = [
+  { href: '/', label: 'Home' },
+  { href: '/support', label: 'Support' },
+  { href: '/contact', label: 'Contact' },
+  { href: '/feedback', label: 'Feedback' },
+  { href: '/privacy', label: 'Privacy' },
+] as const;
+
 export const footerItems = [
   { href: '/support', label: 'Support' },
   { href: '/contact', label: 'Contact' },
