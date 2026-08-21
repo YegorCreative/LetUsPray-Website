@@ -30,6 +30,7 @@ const fullTitle = pageTitle(title, isHome);
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
+    <meta name="theme-color" content="#050505" />
     <link rel="icon" type="image/png" href="/brand/letuspray-app-icon.png" />
     <link rel="apple-touch-icon" href="/brand/letuspray-app-icon.png" />
     <link rel="canonical" href={canonical} />
@@ -43,16 +44,17 @@ const fullTitle = pageTitle(title, isHome);
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
-    <!-- Open Graph image pending owner-supplied asset. Do not invent one. -->
     <meta name="generator" content={Astro.generator} />
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to main content</a>
     <Header />
     <main id="main" class:list={['site-main', isHome && 'site-main--home']}>
-      <div class="wrap stack">
-        <slot />
-      </div>
+      {isHome ? <slot /> : (
+        <div class="wrap stack">
+          <slot />
+        </div>
+      )}
     </main>
     <Footer />
   </body>

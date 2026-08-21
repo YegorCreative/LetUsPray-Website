@@ -2,7 +2,7 @@
 interface Props {
   src: string;
   alt: string;
-  caption: string;
+  caption?: string;
   width: number;
   height: number;
   eager?: boolean;
@@ -22,5 +22,5 @@ const { src, alt, caption, width, height, eager = false } = Astro.props;
       decoding="async"
     />
   </div>
-  <figcaption>{caption}</figcaption>
+  {caption ? <figcaption>{caption}</figcaption> : null}
 </figure>

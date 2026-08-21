@@ -1,0 +1,41 @@
+/*
+  LetUsPray website design tokens.
+  Values come from the approved app palette.
+  Extra mixes use only those colors plus opacity for borders and muted text.
+*/
+
+:root {
+  --lup-dark-bg: #050505;
+  --lup-dark-surface: #111111;
+  --lup-dark-card: #1a1a1a;
+  --lup-green: #bafd4f;
+  --lup-celebration: #ddfe00;
+  --lup-blue: #0a84ff;
+  --lup-cyan: #5ac8fa;
+  --lup-light-bg: #fafaf8;
+  --lup-light-secondary: #f0efea;
+  --lup-light-card: #ffffff;
+  --lup-green-deep: #7ca400;
+
+  --lup-white: #ffffff;
+  --lup-text-on-dark: var(--lup-white);
+  --lup-text-muted-on-dark: color-mix(in srgb, var(--lup-white) 64%, transparent);
+  --lup-text-on-light: var(--lup-dark-surface);
+  --lup-text-muted-on-light: color-mix(in srgb, var(--lup-dark-surface) 68%, var(--lup-light-bg));
+  --lup-border-on-dark: color-mix(in srgb, var(--lup-white) 10%, transparent);
+  --lup-border-on-light: color-mix(in srgb, var(--lup-dark-bg) 10%, transparent);
+
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2.5rem;
+  --space-5: 4.5rem;
+  --space-6: 6rem;
+  --measure: 72rem;
+  --content: 40rem;
+  --radius-m: 1.25rem;
+  --radius-l: 1.75rem;
+  --radius-xl: 2rem;
+  --focus: 0.15rem;
+  --header-height: 4.25rem;
+}

@@ -1,21 +1,4 @@
-/*
-  Structural scaffold styles only.
-  Brand color tokens, typography, and logo assets are not defined here.
-  Until the owner supplies them, this sheet uses the browser's system
-  Canvas / CanvasText colors and the system font stack.
-*/
-
-:root {
-  color-scheme: light;
-  --space-1: 0.5rem;
-  --space-2: 1rem;
-  --space-3: 1.5rem;
-  --space-4: 2.5rem;
-  --space-5: 4rem;
-  --measure: 72rem;
-  --content: 42rem;
-  --focus: 0.15rem;
-}
+@import './tokens.css';
 
 *,
 *::before,
@@ -29,11 +12,13 @@ html {
 
 body {
   margin: 0;
-  font-family: system-ui, sans-serif;
-  font-size: 1rem;
-  line-height: 1.5;
-  color: CanvasText;
-  background-color: Canvas;
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display',
+    system-ui, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  color: var(--lup-text-on-light);
+  background-color: var(--lup-light-bg);
 }
 
 img {
@@ -50,7 +35,7 @@ a {
 }
 
 :focus-visible {
-  outline: var(--focus) solid currentColor;
+  outline: var(--focus) solid var(--lup-green-deep);
   outline-offset: 0.2rem;
 }
 
@@ -59,14 +44,17 @@ a {
   inset-inline-start: var(--space-2);
   inset-block-start: var(--space-2);
   padding: var(--space-1) var(--space-2);
-  background: Canvas;
-  color: CanvasText;
+  background: var(--lup-green);
+  color: var(--lup-dark-bg);
+  font-weight: 650;
+  text-decoration: none;
   transform: translateY(-200%);
-  z-index: 10;
+  z-index: 30;
 }
 
 .skip-link:focus {
   transform: none;
+  outline-color: var(--lup-dark-bg);
 }
 
 .wrap {
@@ -79,8 +67,16 @@ a {
 }
 
 .site-header {
-  border-block-end: 1px solid currentColor;
-  padding-block: var(--space-2);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  color: var(--lup-text-on-dark);
+  background: var(--lup-dark-bg);
+  border-block-end: 1px solid var(--lup-border-on-dark);
+}
+
+.site-header :focus-visible {
+  outline-color: var(--lup-green);
 }
 
 .header-inner {
@@ -89,20 +85,26 @@ a {
   align-items: center;
   justify-content: space-between;
   gap: var(--space-2);
+  min-height: var(--header-height);
 }
 
 .site-id {
   font-weight: 650;
+  letter-spacing: -0.03em;
   text-decoration: none;
   min-height: 2.75rem;
   display: inline-flex;
   align-items: center;
-  gap: 0.65rem;
+  gap: 0.75rem;
+}
+
+.site-id span {
+  font-size: 1.0625rem;
 }
 
 .site-logo {
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2.75rem;
+  height: 2.75rem;
   object-fit: contain;
   flex: none;
 }
@@ -114,7 +116,7 @@ a {
   padding: 0;
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-1) var(--space-3);
+  gap: 0.15rem 0.35rem;
 }
 
 .primary-nav a,
@@ -122,17 +124,28 @@ a {
   display: inline-flex;
   align-items: center;
   min-height: 2.75rem;
+  padding-inline: 0.7rem;
   text-decoration: none;
+  color: var(--lup-text-muted-on-dark);
+}
+
+.primary-nav a:hover,
+.footer-nav a:hover {
+  color: var(--lup-text-on-dark);
 }
 
 .primary-nav a[aria-current='page'] {
-  text-decoration: underline;
-  text-underline-offset: 0.25rem;
+  color: var(--lup-text-on-dark);
+  box-shadow: inset 0 -0.15rem 0 var(--lup-green);
 }
 
 .site-main {
   padding-block: var(--space-4);
   min-height: 60vh;
+}
+
+.site-main--home {
+  padding-block: 0;
 }
 
 .stack {
@@ -148,21 +161,23 @@ a {
 h1,
 h2,
 h3 {
-  line-height: 1.2;
+  line-height: 1.15;
   font-weight: 650;
+  letter-spacing: -0.03em;
   margin: 0;
 }
 
 h1 {
-  font-size: clamp(1.75rem, 2vw + 1.25rem, 2.5rem);
+  font-size: clamp(2.15rem, 4vw + 1rem, 3.75rem);
 }
 
 h2 {
-  font-size: clamp(1.25rem, 1vw + 1.1rem, 1.75rem);
+  font-size: clamp(1.5rem, 1.4vw + 1.15rem, 2rem);
 }
 
 h3 {
-  font-size: 1.1rem;
+  font-size: 1.08rem;
+  letter-spacing: -0.02em;
 }
 
 p {
@@ -171,22 +186,28 @@ p {
 
 .placeholder,
 .pending-cta {
-  border: 1px dashed currentColor;
+  border: 1px dashed color-mix(in srgb, var(--lup-dark-bg) 22%, transparent);
+  background: var(--lup-light-card);
   padding: var(--space-2);
   display: grid;
   gap: var(--space-1);
   max-width: 36rem;
+  border-radius: var(--radius-m);
 }
 
 .placeholder-kicker {
-  font-size: 0.8125rem;
-  letter-spacing: 0.04em;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
+  color: var(--lup-text-on-light);
+  font-weight: 650;
 }
 
 .notice {
-  border: 1px solid currentColor;
+  border: 1px solid var(--lup-border-on-light);
+  background: var(--lup-light-card);
   padding: var(--space-2);
+  border-radius: var(--radius-m);
 }
 
 .help-links {
@@ -204,13 +225,29 @@ p {
 }
 
 .site-footer {
-  border-block-start: 1px solid currentColor;
-  padding-block: var(--space-3);
+  color: var(--lup-text-on-dark);
+  background: var(--lup-dark-bg);
+  border-block-start: 1px solid var(--lup-border-on-dark);
+  padding-block: var(--space-4);
+}
+
+.site-footer :focus-visible {
+  outline-color: var(--lup-green);
 }
 
 .footer-inner {
   display: grid;
   gap: var(--space-2);
+}
+
+.footer-copy {
+  color: var(--lup-text-muted-on-dark);
+  font-size: 0.9375rem;
+}
+
+.footer-nav a[aria-current='page'] {
+  color: var(--lup-text-on-dark);
+  box-shadow: inset 0 -0.15rem 0 var(--lup-green);
 }
 
 @media (prefers-reduced-motion: reduce) {

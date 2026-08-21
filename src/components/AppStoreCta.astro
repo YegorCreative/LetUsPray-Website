@@ -2,9 +2,9 @@
 import { site } from '../site';
 ---
 
-<div class="app-store-cta">
-  {
-    site.appStoreUrl ? (
+{
+  site.appStoreUrl ? (
+    <div class="app-store-cta">
       <a href={site.appStoreUrl}>
         {site.appStoreBadgeSrc ? (
           <img
@@ -17,12 +17,6 @@ import { site } from '../site';
           <span>Download on the App Store</span>
         )}
       </a>
-    ) : (
-      <p class="pending-cta" role="note">
-        The official App Store listing is not available yet. When it is
-        published, the Apple “Download on the App Store” badge will appear
-        here. This is not a download link.
-      </p>
-    )
-  }
-</div>
+    </div>
+  ) : null
+}
