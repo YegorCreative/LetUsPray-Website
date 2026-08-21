@@ -1,7 +1,7 @@
 /*
   LetUsPray website design tokens.
   Values come from the approved app palette.
-  Extra mixes use only those colors plus opacity for borders and muted text.
+  Extra mixes use only those colors plus opacity for borders, glows, and muted text.
 */
 
 :root {
@@ -24,12 +24,8 @@
   --lup-text-muted-on-light: color-mix(in srgb, var(--lup-dark-surface) 68%, var(--lup-light-bg));
   --lup-border-on-dark: color-mix(in srgb, var(--lup-white) 10%, transparent);
   --lup-border-on-light: color-mix(in srgb, var(--lup-dark-bg) 10%, transparent);
-
-  --lup-dark-green: color-mix(in srgb, var(--lup-dark-bg) 86%, var(--lup-green-deep));
-  --lup-dark-green-mid: color-mix(in srgb, var(--lup-dark-surface) 82%, var(--lup-green-deep));
-  --lup-dark-green-card: color-mix(in srgb, var(--lup-dark-card) 78%, var(--lup-green-deep));
-  --lup-green-glow: color-mix(in srgb, var(--lup-green) 22%, transparent);
-  --lup-green-glow-strong: color-mix(in srgb, var(--lup-green) 34%, transparent);
+  --lup-glow: color-mix(in srgb, var(--lup-green) 18%, transparent);
+  --lup-glow-soft: color-mix(in srgb, var(--lup-green) 10%, transparent);
 
   --space-1: 0.5rem;
   --space-2: 1rem;
@@ -37,7 +33,7 @@
   --space-4: 2.5rem;
   --space-5: 4.5rem;
   --space-6: 6rem;
-  --measure: 72rem;
+  --measure: 74rem;
   --content: 40rem;
   --radius-m: 1.25rem;
   --radius-l: 1.75rem;

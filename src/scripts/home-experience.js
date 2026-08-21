@@ -44,8 +44,8 @@ if (heroMedia && motionOK() && pointerQuery.matches) {
     const box = heroMedia.getBoundingClientRect();
     const x = (event.clientX - box.left) / box.width - 0.5;
     const y = (event.clientY - box.top) / box.height - 0.5;
-    heroMedia.style.setProperty('--shift-x', `${(x * 8).toFixed(1)}px`);
-    heroMedia.style.setProperty('--shift-y', `${(y * 6).toFixed(1)}px`);
+    heroMedia.style.setProperty('--shift-x', `${(x * 5).toFixed(1)}px`);
+    heroMedia.style.setProperty('--shift-y', `${(y * 4).toFixed(1)}px`);
   });
   heroMedia.addEventListener('pointerleave', reset);
 }

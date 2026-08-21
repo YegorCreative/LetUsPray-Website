@@ -71,9 +71,9 @@ a {
   top: 0;
   z-index: 20;
   color: var(--lup-text-on-dark);
-  background: color-mix(in srgb, var(--lup-dark-green) 92%, transparent);
-  border-block-end: 1px solid color-mix(in srgb, var(--lup-green) 14%, var(--lup-border-on-dark));
-  backdrop-filter: blur(18px) saturate(1.15);
+  background: color-mix(in srgb, var(--lup-dark-bg) 88%, transparent);
+  border-block-end: 1px solid var(--lup-border-on-dark);
+  backdrop-filter: blur(18px) saturate(1.1);
   transition:
     background-color 0.35s ease,
     border-color 0.35s ease,
@@ -81,9 +81,9 @@ a {
 }
 
 .site-header.is-scrolled {
-  background: color-mix(in srgb, var(--lup-dark-green) 96%, var(--lup-dark-bg));
-  border-block-end-color: color-mix(in srgb, var(--lup-green) 22%, transparent);
-  box-shadow: 0 10px 30px color-mix(in srgb, var(--lup-dark-bg) 45%, transparent);
+  background: color-mix(in srgb, var(--lup-dark-bg) 94%, var(--lup-dark-surface));
+  border-block-end-color: color-mix(in srgb, var(--lup-green) 16%, transparent);
+  box-shadow: 0 12px 32px color-mix(in srgb, var(--lup-dark-bg) 55%, transparent);
 }
 
 .site-header :focus-visible {
@@ -242,8 +242,8 @@ p {
 
 .site-footer {
   color: var(--lup-text-on-dark);
-  background: var(--lup-dark-green);
-  border-block-start: 1px solid color-mix(in srgb, var(--lup-green) 12%, transparent);
+  background: var(--lup-dark-bg);
+  border-block-start: 1px solid var(--lup-border-on-dark);
   padding-block: var(--space-4);
 }
 
@@ -259,9 +259,9 @@ p {
   justify-content: center;
   border-radius: 999px;
   color: var(--lup-green);
-  background: var(--lup-dark-green-mid);
-  border: 1px solid color-mix(in srgb, var(--lup-green) 32%, transparent);
-  box-shadow: 0 8px 24px color-mix(in srgb, var(--lup-dark-bg) 40%, transparent);
+  background: var(--lup-dark-surface);
+  border: 1px solid color-mix(in srgb, var(--lup-green) 28%, transparent);
+  box-shadow: 0 10px 28px color-mix(in srgb, var(--lup-dark-bg) 50%, transparent);
   opacity: 0;
   pointer-events: none;
   transform: translateY(0.4rem);
@@ -280,7 +280,7 @@ p {
 
 .back-to-top:hover,
 .back-to-top:focus-visible {
-  background: var(--lup-dark-green-card);
+  background: var(--lup-dark-card);
   border-color: var(--lup-green);
 }
 

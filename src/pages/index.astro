@@ -12,6 +12,10 @@ import {
 } from '../content/home';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import '../styles/home.css';
+
+const featureCore = features.slice(0, 4);
+const featureMore = features.slice(4);
+const [primaryShot, ...otherShots] = iphoneScreenshots;
 ---
 
 <BaseLayout
@@ -20,7 +24,8 @@ import '../styles/home.css';
   path="/"
   isHome
 >
-  <section class="hero band-dark" aria-labelledby="hero-heading">
+  <section class="hero" aria-labelledby="hero-heading">
+    <div class="hero-atmosphere" aria-hidden="true"></div>
     <div class="wrap hero-inner">
       <div class="hero-copy">
         <p class="hero-brand">
@@ -41,8 +46,8 @@ import '../styles/home.css';
       <div class="hero-media">
         <div class="hero-glow" aria-hidden="true"></div>
         <DeviceShot
-          src={iphoneScreenshots[0].src}
-          alt={iphoneScreenshots[0].alt}
+          src={primaryShot.src}
+          alt={primaryShot.alt}
           width={screenshotIntrinsic.width}
           height={screenshotIntrinsic.height}
           eager
@@ -51,71 +56,121 @@ import '../styles/home.css';
     </div>
   </section>
 
-  <section class="band band-light" aria-labelledby="what-heading">
-    <div class="wrap home-section editorial" data-reveal>
-      <h2 id="what-heading">What LetUsPray is</h2>
-      <div class="prose">
-        <p>LetUsPray helps people pray through Scripture.</p>
-        <p>Scripture comes first. Prayer is the response.</p>
-        <p>
-          The app gives you a peaceful place to open a verse, pray from it, and
-          continue a simple journey with God. You can begin without creating an
-          account.
-        </p>
+  <div class="light-flow">
+    <section class="what" aria-labelledby="what-heading">
+      <div class="wrap what-panel" data-reveal>
+        <h2 id="what-heading">What LetUsPray is</h2>
+        <div class="prose">
+          <p>LetUsPray helps people pray through Scripture.</p>
+          <p class="anchor-line">Scripture comes first. Prayer is the response.</p>
+          <p>
+            The app gives you a peaceful place to open a verse, pray from it, and
+            continue a simple journey with God. You can begin without creating an
+            account.
+          </p>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="band band-secondary" aria-labelledby="how-heading">
-    <div class="wrap home-section">
-      <div class="section-lead" data-reveal>
-        <h2 id="how-heading">How it works</h2>
-        <p class="lede">Every prayer follows the same rhythm.</p>
-      </div>
-      <ol class="rhythm">
-        {
-          rhythm.map((step, index) => (
-            <li class="rhythm-item" data-reveal>
-              <h3>
-                <span class="step-index" aria-hidden="true">{index + 1}.</span>
-                {' '}
-                {step.title}
-              </h3>
-              <p>{step.body}</p>
-            </li>
-          ))
-        }
-      </ol>
-    </div>
-  </section>
-
-  <section class="band band-light" aria-labelledby="features-heading">
-    <div class="wrap home-section">
-      <div class="section-lead" data-reveal>
-        <h2 id="features-heading">Features</h2>
-        <p class="lede">Available now on iPhone and iPad.</p>
-      </div>
-      <ul class="feature-grid">
-        {
-          features.map((feature) => (
-            <li class="feature-card" data-reveal>
-              <h3>{feature.title}</h3>
-              <p>{feature.body}</p>
-            </li>
-          ))
-        }
-      </ul>
-    </div>
-  </section>
-
-  <section class="band band-dark showcase" aria-labelledby="screenshots-heading">
-    <div class="wrap home-section">
-      <h2 id="screenshots-heading" data-reveal>Inside the app</h2>
-      <div class="shot-panel">
-        <ul class="shot-rail" aria-label="iPhone screenshots">
+    <section class="how" aria-labelledby="how-heading">
+      <div class="wrap">
+        <div class="section-lead" data-reveal>
+          <h2 id="how-heading">How it works</h2>
+          <p class="lede">Every prayer follows the same rhythm.</p>
+        </div>
+        <ol class="rhythm">
           {
-            iphoneScreenshots.map((shot) => (
-              <li data-reveal>
+            rhythm.map((step, index) => (
+              <li class="rhythm-item" data-reveal>
+                <h3>
+                  <span class="step-index" aria-hidden="true">{index + 1}.</span>
+                  {' '}
+                  {step.title}
+                </h3>
+                <p>{step.body}</p>
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+    </section>
+
+    <section class="features" aria-labelledby="features-heading">
+      <div class="wrap">
+        <div class="section-lead" data-reveal>
+          <h2 id="features-heading">Features</h2>
+          <p class="lede">Available now on iPhone and iPad.</p>
+        </div>
+        <ul class="feature-core">
+          {
+            featureCore.map((feature) => (
+              <li class="feature-item feature-item--core" data-reveal>
+                <h3>{feature.title}</h3>
+                <p>{feature.body}</p>
+              </li>
+            ))
+          }
+        </ul>
+        <ul class="feature-more">
+          {
+            featureMore.map((feature) => (
+              <li class="feature-item" data-reveal>
+                <h3>{feature.title}</h3>
+                <p>{feature.body}</p>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </section>
+  </div>
+
+  <section class="showcase" aria-labelledby="screenshots-heading">
+    <div class="wrap">
+      <h2 id="screenshots-heading" data-reveal>Inside the app</h2>
+      <div class="showcase-stage" aria-label="iPhone screenshots">
+        <div class="phone phone-side phone-left" data-reveal>
+          <DeviceShot
+            src={otherShots[0].src}
+            alt={otherShots[0].alt}
+            caption={otherShots[0].caption}
+            width={screenshotIntrinsic.width}
+            height={screenshotIntrinsic.height}
+          />
+        </div>
+        <div class="phone phone-primary" data-reveal>
+          <DeviceShot
+            src={primaryShot.src}
+            alt={primaryShot.alt}
+            caption={primaryShot.caption}
+            width={screenshotIntrinsic.width}
+            height={screenshotIntrinsic.height}
+          />
+        </div>
+        <div class="phone phone-side phone-right" data-reveal>
+          <DeviceShot
+            src={otherShots[1].src}
+            alt={otherShots[1].alt}
+            caption={otherShots[1].caption}
+            width={screenshotIntrinsic.width}
+            height={screenshotIntrinsic.height}
+          />
+        </div>
+        <div class="phone phone-rear" data-reveal>
+          <DeviceShot
+            src={otherShots[2].src}
+            alt={otherShots[2].alt}
+            caption={otherShots[2].caption}
+            width={screenshotIntrinsic.width}
+            height={screenshotIntrinsic.height}
+          />
+        </div>
+      </div>
+      {
+        ipadScreenshots.length > 0 ? (
+          <ul class="shot-rail" aria-label="iPad screenshots">
+            {ipadScreenshots.map((shot) => (
+              <li>
                 <DeviceShot
                   src={shot.src}
                   alt={shot.alt}
@@ -124,32 +179,15 @@ import '../styles/home.css';
                   height={screenshotIntrinsic.height}
                 />
               </li>
-            ))
-          }
-        </ul>
-        {
-          ipadScreenshots.length > 0 ? (
-            <ul class="shot-rail" aria-label="iPad screenshots">
-              {ipadScreenshots.map((shot) => (
-                <li>
-                  <DeviceShot
-                    src={shot.src}
-                    alt={shot.alt}
-                    caption={shot.caption}
-                    width={screenshotIntrinsic.width}
-                    height={screenshotIntrinsic.height}
-                  />
-                </li>
-              ))}
-            </ul>
-          ) : null
-        }
-      </div>
+            ))}
+          </ul>
+        ) : null
+      }
     </div>
   </section>
 
-  <section class="band band-light" aria-labelledby="who-heading">
-    <div class="wrap home-section editorial" data-reveal>
+  <section class="who" aria-labelledby="who-heading">
+    <div class="wrap who-panel" data-reveal>
       <h2 id="who-heading">Who it is for</h2>
       <div class="prose">
         <p>LetUsPray is for anyone who wants to pray through Scripture.</p>
@@ -158,37 +196,39 @@ import '../styles/home.css';
           first time. It is for families, pastors, students, and anyone who is
           searching, grieving, hoping, or simply ready to begin.
         </p>
-        <p>You are welcome here.</p>
+        <p class="welcome-line">You are welcome here.</p>
       </div>
     </div>
   </section>
 
-  <section class="band band-dark band-compact cta-close" aria-labelledby="cta-heading">
-    <div class="wrap close-cta" data-reveal>
-      <div class="close-cta-copy">
-        <h2 id="cta-heading">Get the app</h2>
-        <p class="lede">LetUsPray is for iPhone and iPad.</p>
+  <div class="close-flow">
+    <section class="get-app" aria-labelledby="cta-heading">
+      <div class="wrap close-cta" data-reveal>
+        <div class="close-cta-copy">
+          <h2 id="cta-heading">Get the app</h2>
+          <p class="lede">LetUsPray is for iPhone and iPad.</p>
+        </div>
+        <div class="store-slot"><AppStoreCta /></div>
       </div>
-      <div class="store-slot"><AppStoreCta /></div>
-    </div>
-  </section>
+    </section>
 
-  <section class="band band-dark band-compact help-band" aria-labelledby="help-heading">
-    <div class="wrap close-help" data-reveal>
-      <div class="close-help-copy">
-        <h2 id="help-heading">Help</h2>
-        <p class="lede">
-          Questions, feedback, and privacy information are here when you need them.
-        </p>
+    <section class="help-band" aria-labelledby="help-heading">
+      <div class="wrap close-help" data-reveal>
+        <div class="close-help-copy">
+          <h2 id="help-heading">Help</h2>
+          <p class="lede">
+            Questions, feedback, and privacy information are here when you need them.
+          </p>
+        </div>
+        <ul class="help-links">
+          <li><a href="/support">Support and FAQ</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="/feedback">Feedback</a></li>
+          <li><a href="/privacy">Privacy Policy</a></li>
+        </ul>
       </div>
-      <ul class="help-links">
-        <li><a href="/support">Support and FAQ</a></li>
-        <li><a href="/contact">Contact</a></li>
-        <li><a href="/feedback">Feedback</a></li>
-        <li><a href="/privacy">Privacy Policy</a></li>
-      </ul>
-    </div>
-  </section>
+    </section>
+  </div>
 </BaseLayout>
 
 <script src="../scripts/home-experience.js"></script>
