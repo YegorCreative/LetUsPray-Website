@@ -47,7 +47,7 @@ const fullTitle = pageTitle(title, isHome);
     <meta name="twitter:description" content={description} />
     <meta name="generator" content={Astro.generator} />
   </head>
-  <body>
+  <body class:list={[isHome && 'is-home']}>
     <a class="skip-link" href="#main">Skip to main content</a>
     <Header />
     <main id="main" class:list={['site-main', isHome && 'site-main--home']}>
