@@ -1,0 +1,26 @@
+---
+interface Props {
+  src: string;
+  alt: string;
+  caption: string;
+  width: number;
+  height: number;
+  eager?: boolean;
+}
+
+const { src, alt, caption, width, height, eager = false } = Astro.props;
+---
+
+<figure class="device-shot">
+  <div class="device-shot__frame">
+    <img
+      src={src}
+      alt={alt}
+      width={width}
+      height={height}
+      loading={eager ? 'eager' : 'lazy'}
+      decoding="async"
+    />
+  </div>
+  <figcaption>{caption}</figcaption>
+</figure>

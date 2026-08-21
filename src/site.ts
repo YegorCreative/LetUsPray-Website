@@ -2,6 +2,7 @@
  * Site constants for the LetUsPray public website.
  * Brand tokens, App Store URL, and approved copy are supplied by the owner.
  */
+export { privacyFacts } from './data/privacy-facts';
 export const site = {
   name: 'LetUsPray',
   canonicalOrigin: 'https://letusprayapp.com',
@@ -12,7 +13,7 @@ export const site = {
 };
 
 export const defaultDescription =
-  'Development placeholder. Owner-approved page description pending.';
+  'LetUsPray is a Scripture-centered prayer app for iPhone and iPad.';
 
 export function normalizePath(pathname: string): string {
   let path = pathname.replace(/\.html$/, '');

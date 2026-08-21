@@ -1,68 +1,173 @@
 ---
 import AppStoreCta from '../components/AppStoreCta.astro';
-import Placeholder from '../components/Placeholder.astro';
+import DeviceShot from '../components/DeviceShot.astro';
+import {
+  features,
+  homeMeta,
+  ipadScreenshots,
+  iphoneScreenshots,
+  rhythm,
+  screenshotIntrinsic,
+} from '../content/home';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { site } from '../site';
+import '../styles/home.css';
 ---
 
-<BaseLayout title={site.name} path="/" isHome>
-  <section class="section" aria-labelledby="hero-heading">
-    <h1 id="hero-heading">{site.name}</h1>
-    <Placeholder
-      title="Owner-approved hero headline, supporting line, and primary App Store call to action are pending."
-      detail="Do not invent marketing copy, screenshots, or an App Store listing URL."
-    />
-    <AppStoreCta />
+<BaseLayout
+  title={homeMeta.title}
+  description={homeMeta.description}
+  path="/"
+  isHome
+>
+  <section class="hero" aria-labelledby="hero-heading">
+    <div class="hero-copy">
+      <p class="hero-brand">
+        <img
+          src="/brand/letuspray-app-icon.png"
+          alt=""
+          width="48"
+          height="48"
+        />
+        <span>LetUsPray</span>
+      </p>
+      <h1 id="hero-heading">Pray through Scripture</h1>
+      <p class="hero-lead">
+        LetUsPray is a Scripture-centered prayer app. It helps you read God’s
+        Word and respond in prayer, one verse at a time.
+      </p>
+      <p class="hero-support">
+        The experience is designed to stay quiet and unhurried, so attention
+        can remain on prayer rather than on the app.
+      </p>
+      <AppStoreCta />
+    </div>
+    <div class="hero-media">
+      <DeviceShot
+        src={iphoneScreenshots[0].src}
+        alt={iphoneScreenshots[0].alt}
+        caption={iphoneScreenshots[0].caption}
+        width={screenshotIntrinsic.width}
+        height={screenshotIntrinsic.height}
+        eager
+      />
+    </div>
   </section>
 
-  <section class="section" aria-labelledby="what-heading">
+  <section class="home-section" aria-labelledby="what-heading">
     <h2 id="what-heading">What LetUsPray is</h2>
-    <Placeholder
-      title="Owner-approved explanation of the product is pending."
-      detail="Copy must stay within approved project documents. Do not add theological claims that have not been approved."
-    />
+    <div class="prose">
+      <p>LetUsPray helps people pray through Scripture.</p>
+      <p>Scripture comes first. Prayer is the response.</p>
+      <p>
+        The app gives you a peaceful place to open a verse, pray from it, and
+        continue a simple journey with God. You can begin without creating an
+        account.
+      </p>
+    </div>
   </section>
 
-  <section class="section" aria-labelledby="how-heading">
+  <section class="home-section" aria-labelledby="how-heading">
     <h2 id="how-heading">How it works</h2>
-    <Placeholder
-      title="Owner-approved description of the Scripture-to-prayer rhythm is pending."
-      detail="Do not invent prayer text or Scripture quotations."
-    />
+    <p class="lede">Every prayer follows the same rhythm.</p>
+    <ol class="rhythm">
+      {
+        rhythm.map((step, index) => (
+          <li class="rhythm-item">
+            <h3>
+              <span class="step-index" aria-hidden="true">{index + 1}.</span>
+              {' '}
+              {step.title}
+            </h3>
+            <p>{step.body}</p>
+          </li>
+        ))
+      }
+    </ol>
   </section>
 
-  <section class="section" aria-labelledby="features-heading">
-    <h2 id="features-heading">Core features</h2>
-    <Placeholder
-      title="Owner-approved Version 1 feature list for public display is pending."
-      detail="Do not advertise unfinished, future, or community functionality."
-    />
+  <section class="home-section" aria-labelledby="features-heading">
+    <h2 id="features-heading">Features</h2>
+    <p class="lede">Available now on iPhone and iPad.</p>
+    <ul class="feature-grid">
+      {
+        features.map((feature) => (
+          <li class="feature-card">
+            <h3>{feature.title}</h3>
+            <p>{feature.body}</p>
+          </li>
+        ))
+      }
+    </ul>
   </section>
 
-  <section class="section" aria-labelledby="screenshots-heading">
-    <h2 id="screenshots-heading">App screenshots</h2>
-    <Placeholder
-      title="Real LetUsPray app screenshots are pending owner-supplied assets."
-      detail="Do not generate or substitute mock UI."
-    />
+  <section class="home-section" aria-labelledby="screenshots-heading">
+    <h2 id="screenshots-heading">Inside the app</h2>
+    <ul class="shot-rail" aria-label="iPhone screenshots">
+      {
+        iphoneScreenshots.map((shot) => (
+          <li>
+            <DeviceShot
+              src={shot.src}
+              alt={shot.alt}
+              caption={shot.caption}
+              width={screenshotIntrinsic.width}
+              height={screenshotIntrinsic.height}
+            />
+          </li>
+        ))
+      }
+    </ul>
+    {
+      ipadScreenshots.length === 0 ? (
+        <p class="pending-note">
+          iPad screenshots will appear here when they are supplied. The layout
+          is ready for them.
+        </p>
+      ) : (
+        <ul class="shot-rail">
+          {ipadScreenshots.map((shot) => (
+            <li>
+              <DeviceShot
+                src={shot.src}
+                alt={shot.alt}
+                caption={shot.caption}
+                width={screenshotIntrinsic.width}
+                height={screenshotIntrinsic.height}
+              />
+            </li>
+          ))}
+        </ul>
+      )
+    }
   </section>
 
-  <section class="section" aria-labelledby="who-heading">
+  <section class="home-section" aria-labelledby="who-heading">
     <h2 id="who-heading">Who it is for</h2>
-    <Placeholder
-      title="Owner-approved audience wording is pending."
-      detail="Do not invent testimonials, user counts, or reviews."
-    />
+    <div class="prose">
+      <p>LetUsPray is for anyone who wants to pray through Scripture.</p>
+      <p>
+        It is for lifelong believers and for people opening a Bible for the
+        first time. It is for families, pastors, students, and anyone who is
+        searching, grieving, hoping, or simply ready to begin.
+      </p>
+      <p>You are welcome here.</p>
+    </div>
   </section>
 
-  <section class="section" aria-labelledby="cta-heading">
+  <section class="home-section" aria-labelledby="cta-heading">
     <h2 id="cta-heading">Get the app</h2>
-    <Placeholder title="Owner-approved secondary App Store call to action wording is pending." />
+    <p class="lede">
+      LetUsPray is for iPhone and iPad. When the App Store listing is
+      published, you will be able to download it from here.
+    </p>
     <AppStoreCta />
   </section>
 
-  <section class="section" aria-labelledby="help-heading">
+  <section class="home-section" aria-labelledby="help-heading">
     <h2 id="help-heading">Help</h2>
+    <p class="lede">
+      Questions, feedback, and privacy information are here when you need them.
+    </p>
     <ul class="help-links">
       <li><a href="/support">Support and FAQ</a></li>
       <li><a href="/contact">Contact</a></li>

@@ -97,6 +97,14 @@ a {
   min-height: 2.75rem;
   display: inline-flex;
   align-items: center;
+  gap: 0.65rem;
+}
+
+.site-logo {
+  width: 2.5rem;
+  height: 2.5rem;
+  object-fit: contain;
+  flex: none;
 }
 
 .primary-nav ul,
@@ -161,11 +169,13 @@ p {
   margin: 0;
 }
 
-.placeholder {
+.placeholder,
+.pending-cta {
   border: 1px dashed currentColor;
   padding: var(--space-2);
   display: grid;
   gap: var(--space-1);
+  max-width: 36rem;
 }
 
 .placeholder-kicker {

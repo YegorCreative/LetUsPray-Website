@@ -1,6 +1,5 @@
 ---
 import { site } from '../site';
-import Placeholder from './Placeholder.astro';
 ---
 
 <div class="app-store-cta">
@@ -19,10 +18,11 @@ import Placeholder from './Placeholder.astro';
         )}
       </a>
     ) : (
-      <Placeholder
-        title="Official Apple App Store badge and listing URL are pending owner approval."
-        detail="This control is not linked. Do not invent an App Store destination or a substitute badge."
-      />
+      <p class="pending-cta" role="note">
+        The official App Store listing is not available yet. When it is
+        published, the Apple “Download on the App Store” badge will appear
+        here. This is not a download link.
+      </p>
     )
   }
 </div>

@@ -30,6 +30,8 @@ const fullTitle = pageTitle(title, isHome);
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
+    <link rel="icon" type="image/png" href="/brand/letuspray-app-icon.png" />
+    <link rel="apple-touch-icon" href="/brand/letuspray-app-icon.png" />
     <link rel="canonical" href={canonical} />
     <meta name="robots" content={robots} />
     <meta property="og:type" content="website" />
@@ -47,7 +49,7 @@ const fullTitle = pageTitle(title, isHome);
   <body>
     <a class="skip-link" href="#main">Skip to main content</a>
     <Header />
-    <main id="main" class="site-main">
+    <main id="main" class:list={['site-main', isHome && 'site-main--home']}>
       <div class="wrap stack">
         <slot />
       </div>

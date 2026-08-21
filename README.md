@@ -4,7 +4,7 @@ Official website for LetUsPray — a Scripture-centered prayer app designed to h
 
 ## Status
 
-Version 1 technical scaffold. Public copy, brand tokens, screenshots, App Store listing URL, and form delivery are pending owner approval.
+Version 1 homepage is in progress. App Store listing URL, form delivery, Privacy Policy copy, and remaining brand tokens are pending owner approval.
 
 This repository is not deployed. DNS for `letusprayapp.com` is not configured here.
 
