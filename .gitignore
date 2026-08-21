@@ -1,0 +1,16 @@
+# dependencies
+node_modules/
+
+# build
+dist/
+.astro/
+
+# environment
+.env
+.env.*
+
+# os / editor
+.DS_Store
+.vscode/
+.idea/
+*.swp

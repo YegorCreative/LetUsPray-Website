@@ -1,0 +1,73 @@
+---
+import AppStoreCta from '../components/AppStoreCta.astro';
+import Placeholder from '../components/Placeholder.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../site';
+---
+
+<BaseLayout title={site.name} path="/" isHome>
+  <section class="section" aria-labelledby="hero-heading">
+    <h1 id="hero-heading">{site.name}</h1>
+    <Placeholder
+      title="Owner-approved hero headline, supporting line, and primary App Store call to action are pending."
+      detail="Do not invent marketing copy, screenshots, or an App Store listing URL."
+    />
+    <AppStoreCta />
+  </section>
+
+  <section class="section" aria-labelledby="what-heading">
+    <h2 id="what-heading">What LetUsPray is</h2>
+    <Placeholder
+      title="Owner-approved explanation of the product is pending."
+      detail="Copy must stay within approved project documents. Do not add theological claims that have not been approved."
+    />
+  </section>
+
+  <section class="section" aria-labelledby="how-heading">
+    <h2 id="how-heading">How it works</h2>
+    <Placeholder
+      title="Owner-approved description of the Scripture-to-prayer rhythm is pending."
+      detail="Do not invent prayer text or Scripture quotations."
+    />
+  </section>
+
+  <section class="section" aria-labelledby="features-heading">
+    <h2 id="features-heading">Core features</h2>
+    <Placeholder
+      title="Owner-approved Version 1 feature list for public display is pending."
+      detail="Do not advertise unfinished, future, or community functionality."
+    />
+  </section>
+
+  <section class="section" aria-labelledby="screenshots-heading">
+    <h2 id="screenshots-heading">App screenshots</h2>
+    <Placeholder
+      title="Real LetUsPray app screenshots are pending owner-supplied assets."
+      detail="Do not generate or substitute mock UI."
+    />
+  </section>
+
+  <section class="section" aria-labelledby="who-heading">
+    <h2 id="who-heading">Who it is for</h2>
+    <Placeholder
+      title="Owner-approved audience wording is pending."
+      detail="Do not invent testimonials, user counts, or reviews."
+    />
+  </section>
+
+  <section class="section" aria-labelledby="cta-heading">
+    <h2 id="cta-heading">Get the app</h2>
+    <Placeholder title="Owner-approved secondary App Store call to action wording is pending." />
+    <AppStoreCta />
+  </section>
+
+  <section class="section" aria-labelledby="help-heading">
+    <h2 id="help-heading">Help</h2>
+    <ul class="help-links">
+      <li><a href="/support">Support and FAQ</a></li>
+      <li><a href="/contact">Contact</a></li>
+      <li><a href="/feedback">Feedback</a></li>
+      <li><a href="/privacy">Privacy Policy</a></li>
+    </ul>
+  </section>
+</BaseLayout>

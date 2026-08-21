@@ -1,0 +1,14 @@
+---
+interface Props {
+  title: string;
+  detail?: string;
+}
+
+const { title, detail } = Astro.props;
+---
+
+<aside class="placeholder" aria-label="Development placeholder">
+  <p class="placeholder-kicker">Development placeholder</p>
+  <p>{title}</p>
+  {detail ? <p>{detail}</p> : null}
+</aside>

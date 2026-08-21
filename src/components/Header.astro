@@ -1,0 +1,29 @@
+---
+import { navItems, normalizePath, site } from '../site';
+
+const current = normalizePath(Astro.url.pathname);
+---
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="site-id" href="/" aria-current={current === '/' ? 'page' : undefined}>
+      {site.name}
+    </a>
+    <nav class="primary-nav" aria-label="Primary">
+      <ul>
+        {
+          navItems.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                aria-current={current === item.href ? 'page' : undefined}
+              >
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
+</header>

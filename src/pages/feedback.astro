@@ -1,0 +1,20 @@
+---
+import Placeholder from '../components/Placeholder.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Feedback" path="/feedback">
+  <article class="section content">
+    <h1>Feedback</h1>
+    <div class="notice" role="status">
+      <p>
+        This page cannot send feedback. No delivery mechanism has been
+        approved yet, so there is no form and no submission behavior.
+      </p>
+    </div>
+    <Placeholder
+      title="Owner-approved feedback copy and form fields are pending."
+      detail="A real submission path will be added only after the owner selects a provider. Do not connect a forms, email, or database service without approval."
+    />
+  </article>
+</BaseLayout>

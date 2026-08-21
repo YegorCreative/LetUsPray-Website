@@ -1,0 +1,28 @@
+---
+import { site } from '../site';
+import Placeholder from './Placeholder.astro';
+---
+
+<div class="app-store-cta">
+  {
+    site.appStoreUrl ? (
+      <a href={site.appStoreUrl}>
+        {site.appStoreBadgeSrc ? (
+          <img
+            src={site.appStoreBadgeSrc}
+            alt="Download on the App Store"
+            width="120"
+            height="40"
+          />
+        ) : (
+          <span>Download on the App Store</span>
+        )}
+      </a>
+    ) : (
+      <Placeholder
+        title="Official Apple App Store badge and listing URL are pending owner approval."
+        detail="This control is not linked. Do not invent an App Store destination or a substitute badge."
+      />
+    )
+  }
+</div>

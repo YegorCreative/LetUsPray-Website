@@ -1,0 +1,57 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { canonicalUrl, defaultDescription, pageTitle, site } from '../site';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  isHome?: boolean;
+  path: string;
+  robots?: string;
+}
+
+const {
+  title,
+  description = defaultDescription,
+  isHome = false,
+  path,
+  robots = 'index, follow',
+} = Astro.props;
+const canonical = canonicalUrl(path);
+const fullTitle = pageTitle(title, isHome);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="robots" content={robots} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <!-- Open Graph image pending owner-supplied asset. Do not invent one. -->
+    <meta name="generator" content={Astro.generator} />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <Header />
+    <main id="main" class="site-main">
+      <div class="wrap stack">
+        <slot />
+      </div>
+    </main>
+    <Footer />
+  </body>
+</html>

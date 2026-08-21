@@ -1,0 +1,219 @@
+/*
+  Structural scaffold styles only.
+  Brand color tokens, typography, and logo assets are not defined here.
+  Until the owner supplies them, this sheet uses the browser's system
+  Canvas / CanvasText colors and the system font stack.
+*/
+
+:root {
+  color-scheme: light;
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2.5rem;
+  --space-5: 4rem;
+  --measure: 72rem;
+  --content: 42rem;
+  --focus: 0.15rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: CanvasText;
+  background-color: Canvas;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+}
+
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: var(--focus) solid currentColor;
+  outline-offset: 0.2rem;
+}
+
+.skip-link {
+  position: absolute;
+  inset-inline-start: var(--space-2);
+  inset-block-start: var(--space-2);
+  padding: var(--space-1) var(--space-2);
+  background: Canvas;
+  color: CanvasText;
+  transform: translateY(-200%);
+  z-index: 10;
+}
+
+.skip-link:focus {
+  transform: none;
+}
+
+.wrap {
+  width: min(100% - 2rem, var(--measure));
+  margin-inline: auto;
+}
+
+.content {
+  width: min(100%, var(--content));
+}
+
+.site-header {
+  border-block-end: 1px solid currentColor;
+  padding-block: var(--space-2);
+}
+
+.header-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.site-id {
+  font-weight: 650;
+  text-decoration: none;
+  min-height: 2.75rem;
+  display: inline-flex;
+  align-items: center;
+}
+
+.primary-nav ul,
+.footer-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-3);
+}
+
+.primary-nav a,
+.footer-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  text-decoration: none;
+}
+
+.primary-nav a[aria-current='page'] {
+  text-decoration: underline;
+  text-underline-offset: 0.25rem;
+}
+
+.site-main {
+  padding-block: var(--space-4);
+  min-height: 60vh;
+}
+
+.stack {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.section {
+  display: grid;
+  gap: var(--space-2);
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+  font-weight: 650;
+  margin: 0;
+}
+
+h1 {
+  font-size: clamp(1.75rem, 2vw + 1.25rem, 2.5rem);
+}
+
+h2 {
+  font-size: clamp(1.25rem, 1vw + 1.1rem, 1.75rem);
+}
+
+h3 {
+  font-size: 1.1rem;
+}
+
+p {
+  margin: 0;
+}
+
+.placeholder {
+  border: 1px dashed currentColor;
+  padding: var(--space-2);
+  display: grid;
+  gap: var(--space-1);
+}
+
+.placeholder-kicker {
+  font-size: 0.8125rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.notice {
+  border: 1px solid currentColor;
+  padding: var(--space-2);
+}
+
+.help-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-1);
+}
+
+.help-links a {
+  min-height: 2.75rem;
+  display: inline-flex;
+  align-items: center;
+}
+
+.site-footer {
+  border-block-start: 1px solid currentColor;
+  padding-block: var(--space-3);
+}
+
+.footer-inner {
+  display: grid;
+  gap: var(--space-2);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

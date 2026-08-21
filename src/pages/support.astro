@@ -1,0 +1,31 @@
+---
+import Placeholder from '../components/Placeholder.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Support" path="/support">
+  <article class="section content">
+    <h1>Support</h1>
+    <Placeholder
+      title="Owner-approved support introduction is pending."
+      detail="This page is the intended App Store Support URL once the site is live at https://letusprayapp.com/support."
+    />
+  </article>
+
+  <section class="section content" aria-labelledby="faq-heading">
+    <h2 id="faq-heading">FAQ</h2>
+    <Placeholder
+      title="Owner-approved FAQ questions and answers are pending."
+      detail="Do not invent product, pricing, privacy, or theological answers."
+    />
+  </section>
+
+  <section class="section content" aria-labelledby="support-help-heading">
+    <h2 id="support-help-heading">Get help</h2>
+    <ul class="help-links">
+      <li><a href="/contact">Contact</a></li>
+      <li><a href="/feedback">Feedback</a></li>
+      <li><a href="/privacy">Privacy Policy</a></li>
+    </ul>
+  </section>
+</BaseLayout>

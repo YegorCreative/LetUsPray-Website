@@ -1,0 +1,20 @@
+---
+import Placeholder from '../components/Placeholder.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Contact" path="/contact">
+  <article class="section content">
+    <h1>Contact</h1>
+    <div class="notice" role="status">
+      <p>
+        This page cannot send a message. No delivery mechanism has been
+        approved yet, so there is no form and no submission behavior.
+      </p>
+    </div>
+    <Placeholder
+      title="Owner-approved contact copy, public email address, and form fields are pending."
+      detail="A real submission path will be added only after the owner selects a provider. Do not connect Formspree, Resend, Netlify Forms, Supabase, or another service without approval."
+    />
+  </article>
+</BaseLayout>
