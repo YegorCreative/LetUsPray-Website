@@ -1,0 +1,16 @@
+---
+interface Props {
+  size?: number;
+  class?: string;
+}
+
+const { size = 44, class: className } = Astro.props;
+---
+
+<img
+  class:list={['brand-mark', className]}
+  src="/brand/letuspray-logo.svg"
+  alt=""
+  width={size}
+  height={size}
+/>

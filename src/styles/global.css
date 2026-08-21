@@ -102,11 +102,13 @@ a {
   font-size: 1.0625rem;
 }
 
-.site-logo {
+.site-logo,
+.brand-mark {
   width: 2.75rem;
   height: 2.75rem;
   object-fit: contain;
   flex: none;
+  display: block;
 }
 
 .primary-nav ul,

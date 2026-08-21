@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" fill="none" role="img" aria-label="LetUsPray">
+  <title>LetUsPray</title>
+  <defs>
+    <linearGradient id="lup-tile-tl" x1="94" y1="94" x2="492" y2="492" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#60D6FF"/>
+      <stop offset="1" stop-color="#476BFF"/>
+    </linearGradient>
+    <linearGradient id="lup-tile-tr" x1="930" y1="94" x2="532" y2="492" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#A584FF"/>
+      <stop offset="1" stop-color="#6844D9"/>
+    </linearGradient>
+    <linearGradient id="lup-tile-bl" x1="94" y1="930" x2="492" y2="532" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2770D9"/>
+      <stop offset="1" stop-color="#4DBBFF"/>
+    </linearGradient>
+    <linearGradient id="lup-tile-br" x1="930" y1="930" x2="532" y2="532" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#B48CFF"/>
+      <stop offset="1" stop-color="#7544DB"/>
+    </linearGradient>
+    <linearGradient id="lup-book-rear" x1="512" y1="1024" x2="512" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8EFA00"/>
+      <stop offset="1" stop-color="#FFFB00"/>
+    </linearGradient>
+    <linearGradient id="lup-accent" x1="770" y1="140" x2="880" y2="250" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8EFA00"/>
+      <stop offset="1" stop-color="#D4FB79"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Visible Icon Composer tiles from LetUsPray-logo.icon -->
+  <path d="M250 94H492V492H94V250C94 164 164 94 250 94Z" fill="url(#lup-tile-tl)"/>
+  <path d="M532 94H774C860 94 930 164 930 250V492H532V94Z" fill="url(#lup-tile-tr)"/>
+  <path d="M94 532H492V930H250C164 930 94 860 94 774V532Z" fill="url(#lup-tile-bl)"/>
+  <path d="M532 532H930V774C930 860 860 930 774 930H532V532Z" fill="url(#lup-tile-br)"/>
+
+  <!-- book-back-clean, then book-front-clean, using Icon Composer fills -->
+  <g transform="translate(512 476) scale(0.46) translate(-768 -512)">
+    <g fill="url(#lup-book-rear)">
+      <path d="M420 190C560 204 677 255 738 330V700C657 624 552 585 420 575C398 573 380 555 380 533V237C380 207 396 187 420 190Z"/>
+      <path d="M1116 190C976 204 859 255 798 330V700C879 624 984 585 1116 575C1138 573 1156 555 1156 533V237C1156 207 1140 187 1116 190Z"/>
+    </g>
+    <g fill="#0433FF">
+      <path d="M320 292C482 292 605 342 704 420V793C608 716 486 674 320 674C289 674 264 649 264 618V348C264 317 289 292 320 292Z"/>
+      <path d="M1216 292C1054 292 931 342 832 420V793C928 716 1050 674 1216 674C1247 674 1272 649 1272 618V348C1272 317 1247 292 1216 292Z"/>
+    </g>
+  </g>
+
+  <circle cx="818" cy="196" r="54" fill="url(#lup-accent)"/>
+</svg>

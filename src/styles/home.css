@@ -71,9 +71,9 @@
   margin: 0;
 }
 
-.hero-brand img {
-  width: 4.5rem;
-  height: 4.5rem;
+.hero-logo {
+  width: 4.75rem;
+  height: 4.75rem;
   object-fit: contain;
 }
 
@@ -257,9 +257,9 @@
     justify-self: end;
   }
 
-  .hero-brand img {
-    width: 5rem;
-    height: 5rem;
+  .hero-logo {
+    width: 6rem;
+    height: 6rem;
   }
 
   .rhythm {

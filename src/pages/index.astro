@@ -1,5 +1,6 @@
 ---
 import AppStoreCta from '../components/AppStoreCta.astro';
+import BrandMark from '../components/BrandMark.astro';
 import DeviceShot from '../components/DeviceShot.astro';
 import {
   features,
@@ -23,12 +24,7 @@ import '../styles/home.css';
     <div class="wrap hero-inner">
       <div class="hero-copy">
         <p class="hero-brand">
-          <img
-            src="/brand/letuspray-app-icon-mark.png"
-            alt=""
-            width="80"
-            height="80"
-          />
+          <BrandMark class="hero-logo" size={96} />
           <span class="hero-wordmark">LetUsPray</span>
         </p>
         <h1 id="hero-heading">Pray through Scripture</h1>
